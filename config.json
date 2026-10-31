@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "config_revision": 2,
+  "config_revision": 3,
   "environment": "production",
   "metadata": {
     "app": "Targa Scanner",
@@ -23,8 +23,8 @@
   "app_control": {
     "enabled": true,
     "searches_enabled": true,
-    "maintenance_mode": false,
-    "maintenance_message": "Targa Scanner è temporaneamente in manutenzione.",
+    "maintenance_mode": true,
+    "maintenance_message": "Targa Scanner è temporaneamente in manutenzione. Prova di controllo remoto in corso.",
     "maintenance_until_utc": null,
     "emergency_stop": false
   },
@@ -152,4 +152,3 @@
     "flags": {}
   }
 }
-
