@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "config_revision": 2,
+  "environment": "production",
+  "metadata": {
+    "app": "Targa Scanner",
+    "notes": "Configurazione remota pubblica; nessun dato personale, segreto o token."
+  },
+  "refresh": {
+    "on_cold_start": true,
+    "on_foreground_after_minutes": 30,
+    "timeout_seconds": 3,
+    "cache_last_valid": true,
+    "non_blocking": true,
+    "interrupt_active_search": false
+  },
+  "security": {
+    "require_signed_config": true,
+    "signature_algorithm": "Ed25519",
+    "signature_key_id": "primary-v1",
+    "reject_downgrade": true
+  },
+  "app_control": {
+    "enabled": true,
+    "searches_enabled": true,
+    "maintenance_mode": false,
+    "maintenance_message": "Targa Scanner è temporaneamente in manutenzione.",
+    "maintenance_until_utc": null,
+    "emergency_stop": false
+  },
+  "version_control": {
+    "minimum_version": "1.0.0",
+    "minimum_build": 1,
+    "latest_version": "1.0.0",
+    "force_update": false,
+    "update_title": "Aggiornamento necessario",
+    "update_message": "Aggiorna Targa Scanner dall'App Store per continuare le verifiche.",
+    "recommended_update_enabled": false,
+    "recommended_update_message": "È disponibile una nuova versione di Targa Scanner.",
+    "app_store_url": null
+  },
+  "notices": {
+    "startup_banner": {
+      "enabled": false,
+      "severity": "info",
+      "title": "",
+      "message": "",
+      "dismissible": true,
+      "starts_at_utc": null,
+      "ends_at_utc": null
+    },
+    "blocking_notice": {
+      "enabled": false,
+      "title": "",
+      "message": "",
+      "dismissible": false
+    },
+    "country_notices": {}
+  },
+  "search": {
+    "new_searches_enabled": true,
+    "cooldown_seconds": 0,
+    "duplicate_tap_protection": true,
+    "show_progress": true,
+    "search_timeout_seconds": 30,
+    "enable_parallel_rca_revision": true,
+    "enable_parallel_vehicle_data": true,
+    "start_vin_after_primary_results": true
+  },
+  "features": {
+    "rca": true,
+    "revision": true,
+    "vehicle_data": true,
+    "vin": true,
+    "emission_class": true,
+    "new_driver_eligibility": true,
+    "theft_check": true,
+    "inspection_history": true,
+    "vehicle_status": true,
+    "license_plate_trial": true,
+    "moped": true,
+    "motorcycle": true,
+    "car": true
+  },
+  "countries": {
+    "IT": true,
+    "RO": true,
+    "NL": true,
+    "PL": true,
+    "GB": true,
+    "BG": true,
+    "CZ": true,
+    "DK": true,
+    "PT": true,
+    "UA": true,
+    "MD": true,
+    "SE": true,
+    "LV": true,
+    "LT": true
+  },
+  "connectors": {
+    "italy": {
+      "rca_soap_enabled": true,
+      "rca_legacy_fallback_enabled": true,
+      "revision_enabled": true,
+      "vehicle_data_enabled": true,
+      "vin_enabled": true,
+      "emission_class_enabled": true,
+      "vehicle_data_fallback_enabled": true
+    },
+    "foreign": {}
+  },
+  "captcha": {
+    "enabled": true,
+    "automatic_retry_enabled": true,
+    "max_automatic_retries": 3,
+    "show_status_to_user": true
+  },
+  "ui": {
+    "show_maintenance_banner": true,
+    "show_remote_announcements": true,
+    "show_available_update_notice": true,
+    "show_connector_unavailable_reason": true,
+    "custom_home_message": null
+  },
+  "support": {
+    "help_url": null,
+    "status_url": null,
+    "privacy_policy_url": null,
+    "contact_email": null
+  },
+  "access_control": {
+    "blocked_installation_tokens": [],
+    "blocked_account_tokens": [],
+    "block_message": "Accesso temporaneamente non disponibile.",
+    "note": "Solo token pseudonimi, mai ID Apple o dati personali; la revoca locale è aggirabile."
+  },
+  "entitlements": {
+    "storekit_verification_required": true,
+    "free_monthly_search_limit": 10,
+    "subscription_product_id": null,
+    "note": "Limite informativo: modifiche ai prezzi o ad abbonamenti non sono autorizzate da questo JSON; gestione via StoreKit/App Store Connect."
+  },
+  "diagnostics": {
+    "show_readable_error_messages": true,
+    "allow_export_diagnostics": true,
+    "enable_sensitive_logging": false,
+    "debug_mode": false
+  },
+  "rollouts": {
+    "enable_experimental_flags": false,
+    "flags": {}
+  }
+}
+
