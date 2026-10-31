@@ -1,5 +1,8 @@
 # Targa Scanner — configurazione remota
 
+## Pannello Windows
+Apri **AVVIA-PANNELLO.cmd** dal repository estratto per usare interruttori e campi senza modificare JSON. Rilettura dello stato corrente, riepilogo prima della pubblicazione, revisione automatica e controllo dei conflitti. Istruzioni: [pannello/LEGGIMI.md](pannello/LEGGIMI.md). Serve un token personale limitato a questo repository con Contents in lettura/scrittura; non la chiave privata di firma.
+
 Questo repository pubblico contiene solo configurazione e strumenti di firma. Il codice iOS resta privato. Nessuna targa o informazione sugli utenti viene inviata qui dall'app.
 
 ## Prima attivazione su Windows
