@@ -1,0 +1,1 @@
+# targa-scanner-config
