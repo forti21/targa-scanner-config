@@ -7,7 +7,7 @@ Questo repository pubblico contiene solo configurazione e strumenti di firma. Il
 2. Lo script genera la chiave privata **sul tuo PC**, ne conserva una copia nella tua cartella utente e la copia negli appunti. Non inviarla in chat e non caricarla nei file del repository.
 3. Vai in **Settings → Secrets and variables → Actions → New repository secret**. Nome `REMOTE_CONFIG_SIGNING_KEY`; nel valore incolla dagli appunti. Salva.
 4. Vai in **Actions → Pubblica configurazione firmata → Run workflow**. Dopo il successo compaiono `config-signed.json` e `public-key.txt`.
-5. In Codemagic imposta `REMOTE_CONFIG_URL` a `https://raw.githubusercontent.com/forti21/targa-scanner-config/main/config-signed.json` e `REMOTE_CONFIG_PUBLIC_KEY` al contenuto di `public-key.txt`. Aggiungile al workflow dell'app prima della build.
+5. URL e chiave pubblica sono già incorporati nell’app dalla versione **3.92 (194)**: avvia la build Codemagic del ramo `build/iphone-ipa` e installala. Non devi impostare variabili Codemagic.
 
 ## Modifiche successive
 Modifica `config.json`, aumenta `config_revision` e salva. La procedura GitHub Actions firma e pubblica automaticamente. L'app controlla all'avvio/rientro con intervallo minimo di 30 minuti e conserva l'ultima configurazione valida. Se il workflow fallisce, il file firmato precedente resta invariato.
