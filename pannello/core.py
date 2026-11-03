@@ -4,6 +4,7 @@ REPO='forti21/targa-scanner-config'
 BASE='https://api.github.com/repos/'+REPO+'/contents/'
 FLAGS={
  'entitlements.free_limit_enabled':'Limite gratuito mensile attivo (build Store)',
+ 'entitlements.new_subscriptions_enabled':'Consenti nuovi abbonamenti Premium',
  'app_control.enabled':'App attiva',
  'app_control.searches_enabled':'Ricerche abilitate',
  'app_control.maintenance_mode':'Manutenzione',
@@ -55,7 +56,7 @@ def build(original,values,blocked):
                 if not 1<=len(parts)<=4 or any(not p.isascii() or not p.isdigit() or int(p)>2147483647 for p in parts):raise ValueError('Versione minima non valida. Esempio: 3.92')
         old=get(original,path)
         # Absent flags have an effective default; do not create changes on a plain reload/save.
-        default=False if path in FLAGS and path not in ['app_control.enabled','app_control.searches_enabled','search.new_searches_enabled','entitlements.free_limit_enabled'] else True
+        default=False if path in FLAGS and path not in ['app_control.enabled','app_control.searches_enabled','search.new_searches_enabled','entitlements.free_limit_enabled','entitlements.new_subscriptions_enabled'] else True
         if old==value or (old is None and type(value) is bool and value==default):continue
         put(result,path,value)
         rendered=lambda v: 'Sì' if v is True else 'No' if v is False else str(v if v is not None else '(predefinito)')
