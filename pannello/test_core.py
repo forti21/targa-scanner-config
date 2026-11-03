@@ -37,6 +37,14 @@ class Tests(unittest.TestCase):
                 inner.payload=base64.b64decode(body['content']);return {'content':{'sha':'saved'}}
         client=Fake('test-token');new,_=build(self.config,{'features.rca':False},'')
         sha,raw=client.publish(new,'old-sha');self.assertEqual(sha,'saved');self.assertEqual(raw,client.payload);self.assertEqual(json.loads(raw),new)
+    def test_free_quota_controls_and_bounds(self):
+        result,changes=build(self.config,{'entitlements.free_limit_enabled':False,'entitlements.free_monthly_search_limit':'12'},'')
+        self.assertFalse(get(result,'entitlements.free_limit_enabled'));self.assertEqual(get(result,'entitlements.free_monthly_search_limit'),12)
+        self.assertEqual(len(changes),2)
+        for value in ['-1','1001','2.99','abc']:
+            with self.assertRaises(ValueError):build(self.config,{'entitlements.free_monthly_search_limit':value},'')
+        result,changes=build(self.config,{'entitlements.free_limit_enabled':True,'entitlements.free_monthly_search_limit':'10'},'')
+        self.assertFalse(changes);self.assertEqual(result,self.config)
     def test_no_token_no_write(self):
         with self.assertRaises(ValueError):GitHub().publish(self.config,'sha')
 

@@ -19,7 +19,7 @@ class Panel:
         general=self.tab('App e messaggi');features=self.tab('Controlli Italia');countries=self.tab('Paesi');access=self.tab('Installazioni bloccate')
         for i,(path,label) in enumerate(FLAGS.items()):self.checkbox(general,path,label,i//2,i%2)
         for i,(path,label) in enumerate(TEXTS.items()):
-            row=5+i;ttk.Label(general,text=label).grid(row=row,column=0,sticky='w',pady=5)
+            row=6+i;ttk.Label(general,text=label).grid(row=row,column=0,sticky='w',pady=5)
             var=tk.StringVar();self.values[path]=var;ttk.Entry(general,textvariable=var,width=62).grid(row=row,column=1,sticky='ew',pady=5)
         for i,(key,label) in enumerate(FEATURES.items()):self.checkbox(features,'features.'+key,label,i//2,i%2)
         ttk.Label(features,text='Questi interruttori riguardano le verifiche italiane.\nLe altre opzioni preparatorie del JSON non sono modificabili da questo pannello.').grid(row=8,column=0,columnspan=2,sticky='w',pady=20)
@@ -71,8 +71,8 @@ class Panel:
     def loaded(self,result):
         self.original,self.sha=result
         for path,var in self.values.items():
-            default=True if path.startswith(('features.','countries.')) or path in ['app_control.enabled','app_control.searches_enabled','search.new_searches_enabled'] else False
-            value=get(self.original,path,default if isinstance(var,tk.BooleanVar) else '')
+            default=True if path.startswith(('features.','countries.')) or path in ['app_control.enabled','app_control.searches_enabled','search.new_searches_enabled','entitlements.free_limit_enabled'] else False
+            value=get(self.original,path,default if isinstance(var,tk.BooleanVar) else 10 if path=='entitlements.free_monthly_search_limit' else '')
             var.set(value)
         self.blocked.delete('1.0','end');self.blocked.insert('1.0','\n'.join(get(self.original,'access_control.blocked_installation_tokens',[])))
         self.status.set('Configurazione letta · revisione '+str(self.original['config_revision']));self.save_button.configure(state='normal')

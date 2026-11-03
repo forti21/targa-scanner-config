@@ -23,3 +23,11 @@ Blocchi generali e manutenzione (`app_control`), versioni minime (`version_contr
 Gli altri campi del JSON sono preparatori e non operativi: endpoint, connettori/fallback, parametri CAPTCHA, parallelismo/timeout, StoreKit/quote, flags e singole funzioni estere. Non cambiano prezzi o abbonamenti.
 
 I codici installazione sono pseudonimi: non aggiungere nomi o dati personali al file pubblico. I blocchi locali non sono una protezione contro IPA modificate o reinstallazioni.
+
+## Limite gratuito (app 4.19 e successive)
+
+Il pannello permette di attivare/disattivare il limite e impostare da 0 a 1000 ricerche gratuite per mese solare UTC. Il valore predefinito è 10. Le versioni precedenti dell’app ignorano questi campi. La build personale compilata con TARGA_PERSONAL non applica il limite.
+
+Il prezzo 2,99 EUR/mese e l’abbonamento sono gestiti in App Store Connect, mai dal JSON. Premium richiede transazioni verificate StoreKit. Il pannello non può azzerare il contatore del Portachiavi o assegnare Premium a un’installazione. Le modifiche mantengono firma e revisione del controllo remoto.
+
+Questa modifica del pannello non attiva né cambia automaticamente la configurazione pubblicata.
