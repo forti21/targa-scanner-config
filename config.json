@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "config_revision": 6,
+  "config_revision": 7,
   "environment": "production",
   "metadata": {
     "app": "Targa Scanner",
@@ -139,7 +139,8 @@
     "storekit_verification_required": true,
     "free_monthly_search_limit": 10,
     "subscription_product_id": null,
-    "note": "Limite informativo: modifiche ai prezzi o ad abbonamenti non sono autorizzate da questo JSON; gestione via StoreKit/App Store Connect."
+    "note": "Limite informativo: modifiche ai prezzi o ad abbonamenti non sono autorizzate da questo JSON; gestione via StoreKit/App Store Connect.",
+    "new_subscriptions_enabled": true
   },
   "diagnostics": {
     "show_readable_error_messages": true,
