@@ -71,7 +71,7 @@ class Panel:
     def loaded(self,result):
         self.original,self.sha=result
         for path,var in self.values.items():
-            default=True if path.startswith(('features.','countries.')) or path in ['app_control.enabled','app_control.searches_enabled','search.new_searches_enabled','entitlements.free_limit_enabled'] else False
+            default=True if path.startswith(('features.','countries.')) or path in ['app_control.enabled','app_control.searches_enabled','search.new_searches_enabled','entitlements.free_limit_enabled','entitlements.new_subscriptions_enabled'] else False
             value=get(self.original,path,default if isinstance(var,tk.BooleanVar) else 10 if path=='entitlements.free_monthly_search_limit' else '')
             var.set(value)
         self.blocked.delete('1.0','end');self.blocked.insert('1.0','\n'.join(get(self.original,'access_control.blocked_installation_tokens',[])))
